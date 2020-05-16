@@ -1,2 +1,13 @@
-# BT_Slewog_1.1.1
-Il s'agit d'un code en C++ que j'ai écris pour ma lampe contrôlée en BT par un micro contrôleur Arduino UNO réalisée lors de ma formation cher Microbus.
+# Led-Control-Arduino-APK
+This is a code in C ++ that I wrote for my lamp controlled in LV with an Arduino UNO micro controller carried out during my training dear Microbus..
+
+Content :
+
+- APK.
+- Arduino program.
+
+How to install : 
+
+1 : install APK on android smartphone or to use the program, use a BT terminal with an "On" function that sends '1', "SOS" that sends '2', "Blink" that sends '3',"Star Wars" that sends '4' and "Off" that sends '0'
+
+2 : Upload the arduino program to an arduino.
