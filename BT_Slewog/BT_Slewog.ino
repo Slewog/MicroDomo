@@ -1,7 +1,7 @@
 /* 
  * I leave several functions of Print console in order to Test or Unpack the program.
  * Developed by Slewog during his Codage training at Microbus in 2019.
- * To use the program use a BT terminal with an "On" function that sends '1', "SOS" that sends '2', "Blink" that sends '3',"Star Wars" that sends '4', Dragon Ball that sends '5' and "Off" that sends '0'.
+ * To use the program use a BT terminal with an "On" function that sends '1', "SOS" that sends '2', "Blink" that sends '3',"Star Wars" that sends '4' and "Off" that sends '0' or install my apk "Micro_BT".
 */
 
 // Setup Pin and BT
