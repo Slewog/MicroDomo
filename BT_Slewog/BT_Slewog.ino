@@ -46,6 +46,8 @@ void loop()
   if (Serial.available() > 0){ 
     // Stock the value of the Com Port.
     Data_BT = Serial.read();
+    // Returns the lamp status to the application.
+    Serial.println(Data_BT);
 
     if (Data_BT == '0'){ // If the value read is 0, start function Off.
       off();
