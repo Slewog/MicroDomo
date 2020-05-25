@@ -17,8 +17,4 @@ This is a code in C ++ that I wrote for my lamp controlled in bluetooth with an 
 - Uncomment the blocked functions and upload the program again to the arduino, remembering to disconnect the bluetooth module during handling.
 
 
-
-# Developed by Slewog for the ASBL Microbus
-
-
-                      
+# Developed by Slewog for the ASBL Micrbus.
