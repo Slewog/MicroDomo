@@ -7,12 +7,12 @@
 
 // Setup Pin and BT
 #define Pin_Led 2 // Pine variable used for the Led.
-//#define Pin_Buzzer 4 // Pine used for the Piezzo.
+#define Pin_Buzzer 4 // Pine used for the Piezzo.
 #define BT_Speed 9600 // Adjusting the speed of BT.
 char Data_BT = '0'; // Variable which retrieves the value of the transmitter BT and initialization with the value '0'.
 
 // Variable for Note for Star Wars song.
-/*const int c = 261;
+const int c = 261;
 const int d = 294;
 const int e = 329;
 const int f = 349;
@@ -32,7 +32,7 @@ const int gH = 784;
 const int gSH = 830;
 const int aH = 880;
 int counter = 0;
-*/
+
 
 void setup()
 {
@@ -74,11 +74,11 @@ void loop()
         blink_mode();
       }
     }
-    /*if (Data_BT == '4') { // If the value read is 4, start function Star Wars.
+    if (Data_BT == '4') { // If the value read is 4, start function Star Wars.
       return_state_lamp();
       delay(250);
       StarWars();
-    }*/
+    }
   }
   while (Serial.available() == 0){
     delay(50);
@@ -140,7 +140,7 @@ void dash() // Letter 'O' of Signal S.O.S
 }
 
 //---------------------------------- Star Wars Song ----------------------------------
-/*void StarWars()
+void StarWars()
 {
   return_state_lamp();
   firstSection();
@@ -244,4 +244,4 @@ void variant2()
   beep(f, 375);  
   beep(cH, 125);
   beep(a, 650);
-}*/
+}
