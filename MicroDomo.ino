@@ -38,8 +38,8 @@ void setup()
 {
   Serial.begin(BT_Speed); // Frequency Port Com, to enter in the serial monitor for Debug.
   pinMode(Pin_Led, OUTPUT); // Led Pin Settings.
-  //pinMode(Pin_Buzzer, OUTPUT); // Buzzer Pin Settings.
-  //tone(Pin_Buzzer, 2500, 500); // Bip for end of the setup.
+  pinMode(Pin_Buzzer, OUTPUT); // Buzzer Pin Settings.
+  tone(Pin_Buzzer, 2500, 500); // Bip for end of the setup.
 }
 
 void loop()
