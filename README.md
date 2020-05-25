@@ -1,5 +1,5 @@
 # MicroDomo APK + arduino code
-This is a code in C ++ that I wrote for my lamp controlled in bluetooth with an Arduino UNO microcontroller carried out during my training dear Microbus.
+This is a code in C ++ that I wrote for my lamp controlled in bluetooth with an Arduino UNO microcontroller.
 
 # Content :
 - APK.
