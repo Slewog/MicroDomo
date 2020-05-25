@@ -2,7 +2,7 @@
  * I leave several functions of Print console in order to Test or Unpack the program.
  * Developed by Slewog during his Codage training at Microbus in 2019.
  * To use the program use a BT terminal with an "On" function that sends '1', "SOS" that sends '2', "Blink" that sends '3',"Star Wars" that sends '4' and "Off" that sends '0' or install my APK "Micro_Domo".
- * Uncomment the commented lines if you have a piezo to use the song functions.
+ * If you have a piezo to use the song functions, connect it to pin 4 and to a GND.
 */
 
 // Setup Pin and BT
@@ -32,7 +32,6 @@ const int gH = 784;
 const int gSH = 830;
 const int aH = 880;
 int counter = 0;
-
 
 void setup()
 {
