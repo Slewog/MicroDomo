@@ -5,7 +5,7 @@
  * If you have a piezo to use the song functions, connect it to pin 4 and to a GND.
 */
 
-// Setup Pin and BT
+// Settings
 #define Pin_Led 2 // Pine variable used for the Led.
 #define Pin_Buzzer 4 // Pine used for the Piezzo.
 #define BT_Speed 9600 // Adjusting the speed of BT.
@@ -43,65 +43,57 @@ void setup()
 
 void loop()
 {
+  // Repeat as long as the serial port is 0.
+  while (Serial.available() == 0){
+    delay(50);
+    return_state_lamp();
+  }
   // Check that Com Port is available and bigger than 0.
   if (Serial.available() > 0){ 
     // Stock the value of the Com Port.
     Data_BT = Serial.read();
-    if (Data_BT == '0'){ // If the value read is 0, start function Off.
-      return_state_lamp();
-      delay(250);
-      off();
+    // If the value read is 0, switch "OFF" the lamp.
+    if (Data_BT == '0'){
+      digitalWrite(Pin_Led, LOW);
     }
-    if (Data_BT == '1'){ // If the value read is 1, start function On.
-      return_state_lamp();
-      delay(250);
-      on();
+    // If the value read is 1, switch "ON" the lamp.
+    if (Data_BT == '1'){
+      digitalWrite(Pin_Led, HIGH);
     }
-    if (Data_BT == '2') { // If the value read is 2, start function S.O.S, otherwise it does not fit in the loop.
-      return_state_lamp();
+    // If the value read is 2, start function S.O.S.
+    if (Data_BT == '2') {
       delay(250);
       // As long as we do not receive new values ​​the loop is repeated.
       while (Serial.available() == 0){ 
         sos_mode();
       }
     }
-    if (Data_BT == '3') { // If the value read is 3, start function Blink, otherwise it does not fit in the loop.
-      return_state_lamp();
+    // If the value read is 3, start function Blink.
+    if (Data_BT == '3') {
       delay(250);
       // As long as we do not receive new values ​​the loop is repeated.
       while (Serial.available() == 0){
         blink_mode();
       }
     }
-    if (Data_BT == '4') { // If the value read is 4, start function Star Wars.
-      return_state_lamp();
+    // If the value read is 4, start function Star Wars.
+    if (Data_BT == '4') {
       delay(250);
       StarWars();
     }
   }
-  while (Serial.available() == 0){
-    delay(50);
-    return_state_lamp();
-  }
 }
 
 // ---------------------------------- The functions called in the loop ----------------------------------
-void return_state_lamp() // Returns the status of the lamp to the application once it is connected to it
+
+// Returns the status of the lamp to the application once it is connected to it.
+void return_state_lamp()
 {
   Serial.println(Data_BT);
 }
 
-void on() // Switch the lamp on.
-{
-  digitalWrite(Pin_Led, HIGH);
-}
-
-void off() // Switch the lamp off.
-{
-  digitalWrite(Pin_Led, LOW);
-}
-
-void blink_mode() // Switch the lamp on mode blink.
+// Activate the flashing mode.
+void blink_mode()
 {
   return_state_lamp();
   digitalWrite(Pin_Led, HIGH);
@@ -110,16 +102,19 @@ void blink_mode() // Switch the lamp on mode blink.
   delay (250);
 }
 
-void sos_mode() // Switch the lamp on signal S.O.S
+// Activate the S.O.S mode.
+void sos_mode()
 {
   dot(); dash(); dot();
   delay (3000);
 }
 
-void dot() // Letter 'S' of Signal S.O.S
+// Letter 'S' of Signal S.O.S.
+void dot() 
 {
   return_state_lamp();
-  for (int i= 0; i < 3; i++){ // Repeat 3X function
+  // Repeat 3 time this loop.
+  for (int i= 0; i < 3; i++){ 
     digitalWrite(Pin_Led, HIGH);
     delay (250);
     digitalWrite(Pin_Led, LOW);
@@ -127,10 +122,12 @@ void dot() // Letter 'S' of Signal S.O.S
   }
 }
 
-void dash() // Letter 'O' of Signal S.O.S
+// Letter 'O' of Signal S.O.S.
+void dash() 
 {
   return_state_lamp();
-  for (int i= 0; i < 3; i++){ // Repeat 3X function
+  // Repeat 3 time this loop.
+  for (int i= 0; i < 3; i++){
     digitalWrite(Pin_Led, HIGH);
     delay (1000);
     digitalWrite(Pin_Led, LOW);
@@ -139,16 +136,17 @@ void dash() // Letter 'O' of Signal S.O.S
 }
 
 //---------------------------------- Star Wars Song ----------------------------------
+
+// Activate the Star Wars song.
 void StarWars()
 {
-  return_state_lamp();
   firstSection();
   secondSection();
   variant1();
   delay(500);
   variant2();
   delay(650);
-  Data_BT = '0'; //We reset Data_BT to 0 to indicate to the app that the songs are finished
+  Data_BT = '0'; // We reset Data_BT to 0 to indicate to the app that the songs are finished.
 }
  
 void beep(int note, int duration)
